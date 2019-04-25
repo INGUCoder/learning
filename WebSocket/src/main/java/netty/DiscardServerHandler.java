@@ -16,8 +16,9 @@ public class DiscardServerHandler extends ChannelInboundHandlerAdapter {
      */
     @Override
     public void channelRead(ChannelHandlerContext ctx, Object msg){
-
-        ByteBuf in = (ByteBuf) msg;
+        ctx.write("成功连接"+msg);
+        ctx.flush();
+    /*    ByteBuf in = (ByteBuf) msg;
         try {
             while (in.isReadable()){
                 System.out.print((char) in.readByte());
@@ -25,7 +26,7 @@ public class DiscardServerHandler extends ChannelInboundHandlerAdapter {
             }
         }finally {
             ((ByteBuf) msg).release();
-        }
+        }*/
 
     }
 
